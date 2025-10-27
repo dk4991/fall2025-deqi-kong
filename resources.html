@@ -1,58 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Resources</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources</title>
+    <style>
+        /* CSS STYLES */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; }
+        header { background: #333; color: white; padding: 10px 0; text-align: center; }
+        header nav ul { list-style: none; padding: 0; }
+        header nav ul li { display: inline; margin: 0 10px; }
+        header nav ul li a { color: white; text-decoration: none; }
+        footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
+
+        main { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); min-height: 70vh; }
+        h2 { border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-top: 20px; }
+
+        /* Styling for Dynamically Generated Content (Required for the assignment) */
+        #content-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+        .resource-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        .resource-item:hover {
+            transform: translateY(-5px);
+        }
+        .resource-item h3 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+        .resource-item p {
+            font-size: 0.95em;
+            color: #555;
+        }
+        .resource-item .category {
+            display: inline-block;
+            background-color: #00bcd4;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Learning Resources</h1>
-        <nav aria-label="Primary Navigation">
-            <ul>
-                <li><a href="index.html">Introduction</a></li>
-                <li><a href="practice.html">Situational Practice</a></li>
-                <li><a href="resources.html">Learning Resources</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <br><br><br><br><br><br><br>
-
-    <main>
-        <h2>Recommended Reading List</h2>
-
-        <section id="resource-list">
+    <header>
+        <h1>Learning Resources</h1>
+        <nav aria-label="Primary Navigation">
             <ul>
-                <li>
-                    <h3><a href="nvc.html">Nonviolent Communication (NVC)</a></h3>
-                    <p>A process for resolving conflicts and communicating effectively.</p>
-                </li>
-                <br>
-                <li>
-                    <h3><a href="friends.html">How to Win Friends and Influence People</a></h3>
-                    <p>Dale Carnegie's classic self-help book on human relations and influence.</p>
-                </li>
-                <br>
-                <li>
-                    <h3><a href="guiguzi.html">Guiguzi (The Art of Rhetoric)</a></h3>
-                    <p>Ancient Chinese text discussing techniques of rhetoric and diplomacy.</p>
-                </li>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="chapter1.html">Situational Practice</a></li>
+                <li><a href="resources.html">Learning Resources</a></li>
+                <li><a href="contact.html">Contact us</a></li>
             </ul>
-        </section>
-    </main>
-    
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    
-    <footer>
-        <p>&copy; 2025 Communication App. All rights reserved.</p>
-        <nav aria-label="Footer Links">
-            <ul>
-                <li><a href="#privacy">Privacy Policy</a></li>
-                <li><a href="#terms">Terms of Service</a></li>
-            </ul>
-        </nav>
-    </footer>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="dynamic-content">
+            <h2>Recommended Communication & Strategy Books</h2>
+            <div id="content-container">
+                </div>
+        </section>
+
+        <p style="margin-top: 40px;"><a href="chapter1.html" style="font-weight: bold;">Return to Practice Scenarios</a></p>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Communication App. All rights reserved.</p>
+        <nav aria-label="Footer Links">
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2 Practice</title>
+    <style>
+        /* Common CSS STYLES */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; }
+        header { background: #333; color: white; padding: 10px 0; text-align: center; }
+        header nav ul { list-style: none; padding: 0; }
+        header nav ul li { display: inline; margin: 0 10px; }
+        header nav ul li a { color: white; text-decoration: none; }
+        main { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .scenario-question { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
+        figure { margin: 10px 0; text-align: center; }
+        figure img { max-width: 100%; height: auto; border-radius: 5px; }
+        
+        .dialogue-step { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+        .hidden { display: none !important; }
+        .speaker { font-weight: bold; color: #555; margin-bottom: 5px; font-style: italic; }
+        .initial-statement { color: #c00; font-size: 1.1em; }
+
+        /* Chapter 2 Feedback/Action Prompt */
+        #chapter2-action-prompt {
+            padding: 20px;
+            background-color: #e0f7fa;
+            border: 1px solid #00bcd4;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .action-button {
+            padding: 10px 15px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #03a9f4;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Situational Practice</h1>
+        <nav aria-label="Primary Navigation">
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="chapter1.html">Situational Practice</a></li>
+                <li><a href="resources.html">Learning Resources</a></li>
+                <li><a href="contact.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="situational-practice-page">
+        <section class="nvc-practice" id="nvc-section">
+            <h1 id="chapter2-title">Chapter 2: Multi-Step Empathy (Nonviolent Communication)</h1>
+            <p>This is a multi-stage scenario based on the famous conversation between Dr. Marshall B. Rosenberg (Speaker A) and an angry Palestinian (Audience Member B). Successfully navigating all steps using **empathy and need-spotting** is essential to transform conflict into connection.</p>
+
+            <article class="scenario-question">
+                <h2>Practice Scenario 2: De-escalating Hostility</h2>
+                
+                <p class="speaker initial-statement">Audience Member B: Executioner! You killers, murderers of babies! Get out of here!</p>
+                
+                <form id="nvc-form">
+                    <div id="step-1" class="dialogue-step">
+                        <p class="speaker">Speaker A: <strong>Choose your first NVC response.</strong></p>
+                        <fieldset>
+                            <legend>Response Options (Step 1):</legend>
+                            <div class="response-option">
+                                <input type="radio" id="s1-a" name="step-1-response" value="correct" required>
+                                <label for="s1-a">A. Are you angry because you want my government to change the way it uses resources? (Guessing the need)</label>
+                            </div>
+                            <div class="response-option">
+                                <input type="radio" id="s1-b" name="step-1-response" value="incorrect">
+                                <label for="s1-b">B. Wait, I'm here to talk about peace, not politics. Your accusations are unfair.</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" onclick="checkStep(1)">Submit Step 1</button>
+                    </div>
+
+                    <div id="step-2" class="dialogue-step hidden">
+                        <p class="speaker">Audience Member B: Of course I'm angry. Do you think we need tear gas? What we need is drainage pipes, not your tear gas canisters. What we need is a house. We need to establish our own country.</p>
+                        <p class="speaker">Speaker A: <strong>Choose your next NVC response.</strong></p>
+                        <fieldset>
+                            <legend>Response Options (Step 2):</legend>
+                            <div class="response-option">
+                                <input type="radio" id="s2-a" name="step-2-response" value="correct" required>
+                                <label for="s2-a">A. So you are very angry and want some support to improve living conditions and become politically independent? (Searching for the core needs)</label>
+                            </div>
+                            <div class="response-option">
+                                <input type="radio" id="s2-b" name="step-2-response" value="incorrect">
+                                <label for="s2-b">B. I'm sorry, I can't solve global politics right now. Let's focus on the communication workshop.</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" onclick="checkStep(2)">Submit Step 2</button>
+                    </div>
+
+                    <div id="step-3" class="dialogue-step hidden">
+                        <p class="speaker">Audience Member B: Do you know what it feels like to live here with my child for 27 years? Because it is a temporary refugee camp. Do you have any understanding of our long-term living conditions?</p>
+                        <p class="speaker">Speaker A: <strong>Choose your next NVC response.</strong></p>
+                        <fieldset>
+                            <legend>Response Options (Step 3):</legend>
+                            <div class="response-option">
+                                <input type="radio" id="s3-a" name="step-3-response" value="incorrect" required>
+                                <label for="s3-a">A. I have lived through hard times too, so yes, I understand completely.</label>
+                            </div>
+                            <div class="response-option">
+                                <input type="radio" id="s3-b" name="step-3-response" value="correct">
+                                <label for="s3-b">B. It sounds like you're desperate. Do you want to know if I or anyone else can truly understand the taste of this kind of life? (Confirming feeling and need for genuine understanding)</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" onclick="checkStep(3)">Submit Step 3</button>
+                    </div>
+
+                    <div id="step-4" class="dialogue-step hidden">
+                        <p class="speaker">Audience Member B: Do you want to know? Tell me, do you have any children? Do they want to go to school? Do they have a sports field? My son is sick. He is playing in the ditch. There are no books in his classroom. Have you ever seen a school without books?</p>
+                        <p class="speaker">Speaker A: <strong>Choose your next NVC response.</strong></p>
+                        <fieldset>
+                            <legend>Response Options (Step 4):</legend>
+                            <div class="response-option">
+                                <input type="radio" id="s4-a" name="step-4-response" value="correct" required>
+                                <label for="s4-a">A. I noticed how painful it is for you to raise children here. What you are asking for is exactly what all parents want: good education, a healthy environment, and growth for their children. (Connecting to universal needs)</label>
+                            </div>
+                            <div class="response-option">
+                                <input type="radio" id="s4-b" name="step-4-response" value="incorrect">
+                                <label for="s4-b">B. I am very sorry for your situation. Perhaps local charities could help with the school books.</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" onclick="checkStep(4)">Submit Step 4</button>
+                    </div>
+                    
+                    <div id="step-5" class="dialogue-step hidden">
+                        <p class="speaker">Audience Member B: That's right, these are the most basic human rights. Don't you Americans say this is human rights? Why not let more Americans come here and see what kind of human rights you have brought here?</p>
+                        <p class="speaker">Speaker A: <strong>Choose your final NVC response.</strong></p>
+                        <fieldset>
+                            <legend>Response Options (Step 5):</legend>
+                            <div class="response-option">
+                                <input type="radio" id="s5-a" name="step-5-response" value="incorrect" required>
+                                <label for="s5-a">A. I agree. We Americans should be ashamed of what our government has done.</label>
+                            </div>
+                            <div class="response-option">
+                                <input type="radio" id="s5-b" name="step-5-response" value="correct">
+                                <label for="s5-b">B. Do you want more Americans to understand your pain and be aware of the consequences of our political activities? (Confirming the underlying request for awareness)</label>
+                            </div>
+                        </fieldset>
+                        <button type="button" onclick="checkStep(5)">Submit Step 5</button>
+                    </div>
+                </form>
+                
+                <div id="chapter2-action-prompt" class="hidden">
+                    <p id="chapter2-prompt-message">You have completed Chapter 2.</p>
+                    <a id="view-chapter2-result-btn" class="action-button">View Full Result</a>
+                    <a href="chapter2.html" class="action-button">Restart Chapter 2</a>
+                </div>
+            </article>
+        </section>
+        
+        <br><br>
+
+        <h1>Other chapters are coming soon</h1>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Communication App. All rights reserved.</p>
+        <nav aria-label="Footer Links">
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+        let chapter2Result = null;
+
+        function checkStep(stepNum) {
+            const selectedResponse = document.querySelector(`input[name="step-${stepNum}-response"]:checked`);
+            const chapter2ActionPrompt = document.getElementById('chapter2-action-prompt');
+            const chapter2PromptMessage = document.getElementById('chapter2-prompt-message');
+            const viewResultBtn = document.getElementById('view-chapter2-result-btn');
+
+            if (!selectedResponse) {
+                alert("Please select a response.");
+                return;
+            }
+
+            const isCorrect = selectedResponse.value === 'correct';
+
+            if (isCorrect && stepNum < totalSteps) {
+                // Success, move to next step
+                document.getElementById(`step-${stepNum}`).classList.add('hidden');
+                currentStep = stepNum + 1;
+                document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+            } else {
+                // Scenario completion (Success on final step OR Failure on any step)
+                document.getElementById(`step-${stepNum}`).classList.add('hidden');
+                document.getElementById('nvc-form').classList.add('hidden'); 
+
+                if (isCorrect && stepNum === totalSteps) {
+                    chapter2Result = 'SUCCESS';
+                    chapter2PromptMessage.textContent = "SUCCESS! You completed all steps of the Nonviolent Communication scenario.";
+                } else {
+                    chapter2Result = 'FAILURE';
+                    chapter2PromptMessage.textContent = "CONFLICT ESCALATION! Your non-NVC response failed and ended the scenario early.";
+                    for(let i = stepNum + 1; i <= totalSteps; i++) {
+                        document.getElementById(`step-${i}`).classList.add('hidden');
+                    }
+                }
+                
+                // 1. Save Chapter 2 result to Local Storage
+                localStorage.setItem('chapter2_result', chapter2Result);
+
+                // 2. Set the redirect link (always redirecting to feedback.html)
+                viewResultBtn.href = `feedback.html?view=full_result`; 
+                
+                // 3. Show action prompt
+                chapter2ActionPrompt.classList.remove('hidden');
+            }
+        }
+
+        // Clear any specific Chapter 1 direct view data when starting/revisiting Chapter 2
+        // NOTE: We keep chapter1_choice in storage as it will be part of the final result.
+        localStorage.removeItem('chapter2_result');
+
+        // Initial setup function to ensure the scenario starts cleanly
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('nvc-form').classList.remove('hidden');
+            document.getElementById('chapter2-action-prompt').classList.add('hidden');
+            document.querySelectorAll('.dialogue-step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('step-1').classList.remove('hidden');
+            document.getElementById('nvc-form').reset();
+            currentStep = 1;
+        });
+    </script>
+</body>
+</html>

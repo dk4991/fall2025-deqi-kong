@@ -1,10 +1,25 @@
-
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
+    <style>
+        /* Common CSS STYLES */
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; }
+        header { background: #333; color: white; padding: 10px 0; text-align: center; }
+        header nav ul { list-style: none; padding: 0; }
+        header nav ul li { display: inline; margin: 0 10px; }
+        header nav ul li a { color: white; text-decoration: none; }
+        main { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); min-height: 50vh; }
+        footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
+        
+        .feedback-result { margin-top: 30px; padding: 20px; border: 2px solid #ccc; border-radius: 8px; background-color: #f9f9f9; }
+        .grade-a { color: green; font-weight: bold; }
+        .grade-bad { color: orange; font-weight: bold; }
+        .grade-worst { color: red; font-weight: bold; }
+        .combined-result { margin-top: 20px; padding: 15px; border-radius: 5px; background-color: #e0f7fa; }
+    </style>
 </head>
 <body>
     <header>
@@ -12,28 +27,43 @@
         <nav aria-label="Primary Navigation">
             <ul>
                 <li><a href="index.html">Introduction</a></li>
-                <li><a href="practice.html">Situational Practice</a></li>
+                <li><a href="chapter1.html">Situational Practice</a></li>
                 <li><a href="resources.html">Learning Resources</a></li>
                 <li><a href="contact.html">Contact us</a></li>
             </ul>
         </nav>
     </header>
 
-    <br><br><br><br><br><br><br>
+    <br><br><br>
 
     <main>
-        <h1>Your Practice Result</h1>
-        <h2>Grade</h2>
-        <p>A: You will usher in a new chapter of your life.</p>
-        <p>B&C: Suggest reading relevant books to learn communication skills.</p>
-        <p>D: Happiness is the most important thing.</p>
+        <h1 id="main-title">Practice Result</h1>
+        <h2 id="subtitle">Loading...</h2>
+        
+        <div id="combined-feedback-area" class="combined-result hidden">
+            <h3>Combined Practice Score (Chapters 1 & 2)</h3>
+            <p id="ch1-summary">Chapter 1 Result: N/A</p>
+            <p id="ch2-summary">Chapter 2 Result: N/A</p>
+            <p id="overall-grade" style="font-size: 1.2em; margin-top: 10px;">Overall Assessment: Calculating...</p>
+        </div>
+
+        <ul id="grading-criteria-list">
+             <li class="grade-a">A (Excellent): You will usher in a new chapter of your life.</li>
+            <li class="grade-bad">B & C (Needs Improvement): Suggest reading relevant books to learn communication skills.</li>
+            <li class="grade-worst">D (Failed): Happiness is the most important thing (Restart recommended).</li>
+        </ul>
         
         <br>
-        <p>Your selected response was [**A/B/C/D**]. Based on your choice, your result is [**Grade/Explanation**].</p>
-        <p><a href="practice.html">Try another chapter!</a></p>
+        
+        <div class="feedback-result">
+            <p id="selected-response">Your selected response was: <strong>Loading...</strong></p>
+            <p id="result-explanation">Result: <strong>Loading...</strong></p>
+        </div>
+        
+        <p style="margin-top: 40px;"><a href="chapter1.html" class="button">Try another chapter!</a></p>
     </main>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br>
 
     <footer>
         <p>&copy; 2025 Communication App. All rights reserved.</p>
@@ -44,5 +74,108 @@
             </ul>
         </nav>
     </footer>
+
+    <script>
+        // Maps the single-choice value (A, B, C, D) to a numerical score (4, 3, 2, 1)
+        function mapChapter1ChoiceToScore(choice) {
+            switch (choice) {
+                case 'D': return 4; // Correct answer
+                case 'B': return 2;
+                case 'C': return 2;
+                case 'A': return 1; // Worst answer
+                default: return 0;
+            }
+        }
+
+        // Maps the Chapter 2 result (SUCCESS/FAILURE) to a score
+        function mapChapter2ResultToScore(result) {
+            if (result === 'SUCCESS') return 4;
+            if (result === 'FAILURE') return 1;
+            return 0;
+        }
+
+        function displayFeedback() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedChoice = urlParams.get('choice'); // Only present if viewing Chapter 1 solo
+            const chapter1Local = localStorage.getItem('chapter1_choice'); // Chapter 1 score from storage
+            const chapter2Local = localStorage.getItem('chapter2_result'); // Chapter 2 score from storage
+            const viewFullResult = urlParams.get('view') === 'full_result'; // True if viewing combined result
+
+            const mainTitle = document.getElementById('main-title');
+            const selectedResponse = document.getElementById('selected-response');
+            const resultExplanation = document.getElementById('result-explanation');
+
+            resultExplanation.className = ''; 
+            selectedResponse.style.display = 'block'; 
+
+            if (viewFullResult && chapter1Local && chapter2Local) {
+                // --- Logic for Combined/Full Result ---
+                mainTitle.textContent = 'Full Practice Assessment';
+                document.getElementById('subtitle').textContent = 'Combined Results';
+                document.getElementById('combined-feedback-area').classList.remove('hidden');
+                
+                // Calculate Combined Score
+                const score1 = mapChapter1ChoiceToScore(chapter1Local);
+                const score2 = mapChapter2ResultToScore(chapter2Local);
+                const totalScore = score1 + score2; // Max is 8, Min is 2
+
+                let overallGrade = '';
+                let overallAssessment = '';
+
+                if (totalScore >= 7) {
+                    overallGrade = 'A';
+                    overallAssessment = 'Exceptional performance! You mastered both scenarios, demonstrating high competence in both empathy and de-escalation. Your communication skills are outstanding.';
+                    document.getElementById('overall-grade').classList.add('grade-a');
+                } else if (totalScore >= 5) {
+                    overallGrade = 'B/C';
+                    overallAssessment = 'Solid performance. You succeeded in one area but struggled slightly in the other. Focus on refining your weaker area using the provided resources.';
+                    document.getElementById('overall-grade').classList.add('grade-bad');
+                } else {
+                    overallGrade = 'D';
+                    overallAssessment = 'Needs serious review. Both scenarios indicated significant challenges in handling conflict. We strongly recommend reviewing the core principles of communication.';
+                    document.getElementById('overall-grade').classList.add('grade-worst');
+                }
+
+                document.getElementById('ch1-summary').textContent = `Chapter 1 Grade: ${score1 === 4 ? 'A' : 'D/B/C'}`;
+                document.getElementById('ch2-summary').textContent = `Chapter 2 Grade: ${score2 === 4 ? 'A' : 'D'}`;
+                document.getElementById('overall-grade').innerHTML = `Overall Grade (${totalScore}/8): <strong>${overallGrade}</strong>`;
+
+                selectedResponse.style.display = 'none';
+                resultExplanation.innerHTML = overallAssessment;
+
+                // Clear storage after showing combined result
+                localStorage.removeItem('chapter1_choice');
+                localStorage.removeItem('chapter2_result');
+
+            } else if (selectedChoice) {
+                // --- Logic for Chapter 1 (Solo View) ---
+                mainTitle.textContent = 'Chapter 1 Practice Result (Parent Communication)';
+                document.getElementById('subtitle').textContent = 'Grading Criteria';
+                document.getElementById('combined-feedback-area').classList.add('hidden');
+
+                const gradeMap = {
+                    'D': { grade: 'A (Excellent)', text: 'Congratulations! You chose the most empathetic and de-escalating response. You will usher in a new chapter of your life.', class: 'grade-a' },
+                    'B': { grade: 'B/C (Needs Improvement)', text: 'You made an effort, but the response was slightly lacking. Suggest reading relevant books to learn more effective communication skills.', class: 'grade-bad' },
+                    'C': { grade: 'B/C (Needs Improvement)', text: 'You made an effort, but the response was slightly lacking. Suggest reading relevant books to learn more effective communication skills.', class: 'grade-bad' },
+                    'A': { grade: 'D (Failed)', text: 'Your response was aggressive and escalated the conflict entirely. Remember: happiness is the most important thing! We recommend reviewing basic communication principles.', class: 'grade-worst' }
+                };
+                
+                const feedback = gradeMap[selectedChoice] || { grade: 'Unknown', text: 'Could not recognize your choice, please try again.' };
+
+                resultExplanation.classList.add(feedback.class);
+                selectedResponse.innerHTML = `Your selected response was: <strong>${selectedChoice}</strong>`;
+                resultExplanation.innerHTML = `Result (${feedback.grade}): <strong>${feedback.text}</strong>`;
+                
+            } else {
+                // No parameters found
+                mainTitle.textContent = 'Error';
+                document.getElementById('subtitle').textContent = 'Error';
+                selectedResponse.innerHTML = '<strong>No practice data found.</strong>';
+                resultExplanation.innerHTML = 'Please return to the situational practice page to attempt a chapter.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displayFeedback);
+    </script>
 </body>
 </html>
