@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,23 @@
         header { background: #333; color: white; padding: 10px 0; text-align: center; }
         header nav ul { list-style: none; padding: 0; }
         header nav ul li { display: inline; margin: 0 10px; }
-        header nav ul li a { color: white; text-decoration: none; }
+        header nav ul li a { color: white; text-decoration: none; 
+            /*Add mouse hover effect*/
+            transition: color 0.3s ease;}
         main { padding: 40px 20px; text-align: center; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-        .button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; }
-        .button:hover { background-color: #45a049; }
+        .button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: transform 0.2s ease, background-color 0.3s ease;}
+        .button:hover { background-color: #45a049; transform: scale(1.05);}
         footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
+
+        /*Add the color for mouse hover.*/
+        header nav ul li a:hover {
+            color:#4CAF50
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>MacBook Pro 14" - 1</h1>
+        <h1>Introduction</h1>
         <nav aria-label="Primary Navigation">
             <ul>
                 <li><a href="index.html">Introduction</a></li>
@@ -38,8 +45,11 @@
             <p style="font-size: 1.2em;">Learn to listen and express, enhance workplace influence.</p>
             
             <figure>
-                <img src="https://placehold.co/400x200/cccccc/333333?text=Communication+Illustration" alt="Illustration of people communicating effectively." style="max-width: 100%; height: auto; border-radius: 5px;">
-                <figcaption>(Post & image)</figcaption>
+                <img 
+                    src="images/index-post.png" 
+                    alt="Communication App Illustration" 
+                    style="max-width: 100%; height: auto; border-radius: 5px;"
+                >
             </figure>
             <br><br><br>
             <a href="chapter1.html" class="button">Start now!</a>

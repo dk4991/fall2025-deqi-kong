@@ -10,7 +10,10 @@
         header { background: #333; color: white; padding: 10px 0; text-align: center; }
         header nav ul { list-style: none; padding: 0; }
         header nav ul li { display: inline; margin: 0 10px; }
-        header nav ul li a { color: white; text-decoration: none; }
+        header nav ul li a { color: white; text-decoration: none; 
+            
+            /*Add mouse hover effect*/
+            transition: color 0.3s ease;}
         main { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
         .scenario-question { margin-bottom: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
         footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
@@ -19,6 +22,11 @@
         #continue-prompt { margin-top: 30px; padding: 20px; background-color: #e8f5e9; border: 1px solid #4CAF50; border-radius: 5px; text-align: center; }
         #continue-prompt a { display: inline-block; padding: 10px 20px; margin: 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
         .hidden { display: none; }
+
+        /*Add the color for mouse hover.*/
+        header nav ul li a:hover {
+            color:#4CAF50
+        }
     </style>
 </head>
 <body>
@@ -44,7 +52,7 @@
                 <p><strong>Parent's Question:</strong> Why's my child's academic performance so poor? How does your teacher teach?</p>
                 
                 <figure>
-                    <img src="https://via.placeholder.com/300x150?text=Angry+Parent" alt="Image of a parent with an angry expression.">
+                    <img src="images/angry-parents.png" alt="Image of a parent with an angry expression.">
                     <figcaption>Parent has an angry expression.</figcaption>
                 </figure>
                 

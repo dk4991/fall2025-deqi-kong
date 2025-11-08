@@ -1,5 +1,18 @@
 # fall2025-deqi-kong
 
+## Project Progress + CSS Animations
+
+Project Progress + CSS Animations
+
+---
+* **Add Images** This week I added the images to the webpage.
+
+
+* **CSS Animation**I added the effect of color change on mouse hover to all the menu items in the home page.
+
+* **Encountered a Problem**I've encountered a problem that I can't solve. That is, I want to add an effect where the title enlarges when the mouse hovers over it, but I've tried for a long time and still can't achieve it.
+
+
 
 ## Assignment 8: Project Development and Feature Implementation
 

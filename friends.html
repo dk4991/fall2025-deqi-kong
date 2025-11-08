@@ -10,7 +10,11 @@
         header { background: #333; color: white; padding: 10px 0; text-align: center; }
         header nav ul { list-style: none; padding: 0; }
         header nav ul li { display: inline; margin: 0 10px; }
-        header nav ul li a { color: white; text-decoration: none; }
+        header nav ul li a { color: white; text-decoration: none; 
+        
+        /*Add mouse hover effect*/
+            transition: color 0.3s ease;
+        }
         main { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
         h2 { border-bottom: 2px solid #ccc; padding-bottom: 5px; margin-top: 20px; }
         #friends-details { margin-bottom: 30px; }
@@ -20,6 +24,11 @@
         footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
         figure { text-align: center; margin-top: 20px; }
         figure img { max-width: 250px; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+
+        /*Add the color for mouse hover.*/
+        header nav ul li a:hover {
+            color:#4CAF50
+        }
     </style>
 </head>
 <body>
@@ -52,8 +61,8 @@
             
             <h3><a href="#Buy Now!">Buy Now!</a></h3>
             <figure>
-                <img src="placeholder-image-book-How to Win Friends and Influence People.jpg" alt="The cover of How to Win Friends and Influence People book.">
-                <figcaption>The cover of How to Win Friends and Influence People.(image)</figcaption>
+                <img src="images/friends.png" alt="The cover of How to Win Friends and Influence People book.">
+                
             </figure>
         </section>
     </main>
