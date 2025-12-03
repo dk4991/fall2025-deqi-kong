@@ -1,6 +1,7 @@
 # fall2025-deqi-kong
 
 ## 3/12/2025 update
+
 I updated the index interface, adding the audience group and promotion sections. This will make the main interface more attractive.
 
 ## Project Progress + CSS Animations
