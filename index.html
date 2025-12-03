@@ -3,29 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Communication App - Home</title>
+    <title>Communication Master - Enhance Your Workplace and Life Influence</title> 
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f9; }
         header { background: #333; color: white; padding: 10px 0; text-align: center; }
         header nav ul { list-style: none; padding: 0; }
         header nav ul li { display: inline; margin: 0 10px; }
         header nav ul li a { color: white; text-decoration: none; 
-            /*Add mouse hover effect*/
             transition: color 0.3s ease;}
         main { padding: 40px 20px; text-align: center; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
         .button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 20px; transition: transform 0.2s ease, background-color 0.3s ease;}
         .button:hover { background-color: #45a049; transform: scale(1.05);}
         footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; color: #777; }
-
-        /*Add the color for mouse hover.*/
         header nav ul li a:hover {
             color:#4CAF50
         }
+
+        .features-section, .target-audience-section {
+            padding: 40px 20px;
+            text-align: left;
+        }
+        .features-section h3, .target-audience-section h3 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+            text-align: left;
+        }
+        .feature-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #4CAF50;
+        }
+        .feature-item h4 {
+            color: #4CAF50;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .target-audience-section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .target-audience-section ul li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+        }
+        .target-audience-section ul li::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
     </style>
 </head>
 <body>
     <header>
-        <h1>Introduction</h1>
+        <h1>Introduction</h1> 
         <nav aria-label="Primary Navigation">
             <ul>
                 <li><a href="index.html">Introduction</a></li>
@@ -40,20 +86,53 @@
 
     <main>
         <section id="hero-section">
-            <p style="font-size: 1.5em; font-weight: bold;">Unlock efficient communication and achieve outstanding life.</p>
+            <h2 style="font-weight: bold; font-size: 1.5em; color: #333;">Escape Communication Hurdles: Achieve Peak Influence in Work and Life</h2>
             
-            <p style="font-size: 1.2em;">Learn to listen and express, enhance workplace influence.</p>
+            <p style="font-size: 1.2em;">Master effective listening and expression skills through situational practice and professional resources.</p>
             
             <figure>
                 <img 
                     src="images/index-post.png" 
-                    alt="Communication App Illustration" 
+                    alt="Communication Master App illustration: Symbolizing highly effective communication and teamwork" 
                     style="max-width: 100%; height: auto; border-radius: 5px;"
                 >
             </figure>
             <br><br><br>
-            <a href="chapter1.html" class="button">Start now!</a>
+            <a href="chapter1.html" class="button">Start Your High-Impact Communication Journey Now!</a>
         </section>
+        
+        <section class="features-section">
+            <h3>✨ Core Features & Benefits</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h4>Situational Simulation Practice</h4>
+                    <p>Offers realistic workplace and life dialogue scenarios for risk-free practice and skill enhancement.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Instant Feedback Guidance</h4>
+                    <p>Provides personalized professional feedback based on your choices and expressions, precisely pinpointing areas for improvement.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Professional Resource Library</h4>
+                    <p>Curated high-quality learning materials on communication theory, negotiation tactics, and emotional intelligence, available anytime.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Influence Boosting Module</h4>
+                    <p>Specifically designed to enhance professional influence, helping you effectively convey ideas and drive project momentum.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="target-audience-section">
+            <h3>🎯 Who Should Use Communication Master?</h3>
+            <ul>
+                <li>**New Professionals**: Those looking to quickly integrate into teams and master effective reporting and cross-functional collaboration.</li>
+                <li>**Mid-Level Managers**: Individuals needing to enhance team motivation, conflict resolution, and negotiation skills.</li>
+                <li>**Ambitious Individuals**: People aiming to improve interpersonal relationships, daily social interactions, and public speaking abilities.</li>
+                <li>**Anyone** looking to boost communication efficiency and minimize misunderstandings.</li>
+            </ul>
+        </section>
+
     </main>
 
     <br><br><br><br><br><br><br>
